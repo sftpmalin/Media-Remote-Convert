@@ -6,9 +6,9 @@ REM ===============================================
 REM  Connexion SSH + lancement du menu Python
 REM ===============================================
 
-set SERVER=192.168.1.25
-set USER=yoan
-set KEYPATH=%USERPROFILE%\.ssh\yoan
+set SERVER=192.168.xxxxxxxxxxxxxxxx
+set USER=user xxxxxxxxxxxxx
+set KEYPATH=%USERPROFILE%\.ssh\votre cle
 
 echo.
 echo Connexion à %SERVER% ...
@@ -23,3 +23,4 @@ echo ===============================================
 echo   Menu terminé - Session SSH fermée
 echo ===============================================
 exit
+
