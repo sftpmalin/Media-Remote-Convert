@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  ffmpeg-ssh:
+    # Nom de l'image que nous allons construire
+    image: ffmpeg-ssh-server
+    # Construire l'image à partir du Dockerfile dans le dossier actuel
+    build: .
+    container_name: ffmpeg-server
+    hostname: ffmpeg-server
+    restart: unless-stopped
+    
+    # --- Configuration Réseau ---
+    ports:
+      # Exposer le port SSH 22 (conteneur) sur le port 2222 (hôte)
+      - "2222:22"
+
+    # --- Activation des GPU (NVIDIA & Intel) ---
+    deploy:
+      resources:
+        reservations:
+          devices:
+            # C'est la méthode moderne pour --gpus all
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    devices:
+      # Passer le périphérique de rendu Intel (pour VA-API)
+      - "/dev/dri:/dev/dri"
+
+    # --- Configuration du Volume Unique ---
+    volumes:
+      # 1. Volume principal pour /data
+      #    Un dossier 'data-ffmpeg' sera créé à côté de ce fichier.
+      #    Il contiendra tout : /config, /bin, /keys, et /home
+      - ./data-ffmpeg:/data:rw
