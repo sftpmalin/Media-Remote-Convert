@@ -1,7 +1,7 @@
 @echo off
 
 :: --- Ouvrir le terminal Windows avec PowerShell et SSH ---
-start "" wt.exe powershell -NoExit ssh -i "$HOME\.ssh\yoan" yoan@192.168.1.25
+start "" wt.exe powershell -NoExit ssh -i "$HOME\.ssh\votre cle OPENSSh windows" yoan@192.168.xxxxxxxxxxxxxxxxxx
 
 :: --- Attendre 0.6 seconde pour que la fenêtre existe ---
 timeout /t 1 >nul
@@ -25,4 +25,5 @@ $w  = $r.Width; ^
 $h  = $r.Height; ^
 $x = ($sw - $w) / 2; ^
 $y = ($sh - $h) / 2; ^
+
 [Win]::MoveWindow($hwnd,$x,$y,$w,$h,$true)"
