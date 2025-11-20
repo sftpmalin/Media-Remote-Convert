@@ -1,39 +1,78 @@
 <?xml version="1.0"?>
 <Container version="2">
+
   <Name>FFmpeg_Malin</Name>
   <Repository>sftpmalin/ffmpeg:latest</Repository>
   <Network>bridge</Network>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
 
-  <!-- -------- DESCRIPTION PRO -------- -->
+  <!-- ======== DESCRIPTION (Overview dans Unraid) ======== -->
   <Overview>
 FFmpeg_Malin est un conteneur FFmpeg + SSH/SFTP entièrement automatisé et prêt à l’emploi.
 
 Fonctionnalités principales :
 - Génération automatique des clés SSH persistantes
-- Création automatique des utilisateurs via users.conf
-- Permissions Linux strictes et sécurisées
-- Dossier /data/home adapté pour envoyer des fichiers en SFTP
-- FFmpeg GPU-ready (NVENC / VAAPI si compatible hôte)
-- Paramètres par défaut intelligents : aucun réglage obligatoire
-- Conteneur utilisable immédiatement après installation
+- Création des utilisateurs via users.conf (auto ou manuel)
+- Permissions Linux sécurisées et strictes
+- Dossier /data/home utilisé pour les transferts SFTP
+- FFmpeg GPU-ready (NVENC / VAAPI si support matériel)
+- Aucun réglage obligatoire : installez → connectez-vous → encodez
 
-Documentation détaillée, options avancées SSH, multi-utilisateurs et
-personnalisation disponibles sur la page GitHub du projet.
+Pour les options avancées (SSH, multi-utilisateur, scripts, gestion UID/GID…)
+consultez la documentation complète sur la page GitHub du projet.
   </Overview>
+
+  <!-- ======== ICÔNE ======== -->
   <Icon>https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png</Icon>
+
+  <!-- ======== SUPPORT / PROJET ======== -->
   <Support>https://github.com/sftpmalin/Media-Remote-Convert/issues</Support>
   <Project>https://hub.docker.com/r/sftpmalin/ffmpeg</Project>
-  <!-- Lien vers ton XML (à mettre à jour une fois dans ton repo unraid-templates) -->
-  <TemplateURL>https://raw.githubusercontent.com/sftpmalin/unraid-templates/main/ffmpeg_malin.xml</TemplateURL>
+
+  <!-- ======== TEMPLATE URL (pour Unraid Community Apps) ======== -->
+  <TemplateURL>https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/templates-user/FFmpeg_Malin.xml</TemplateURL>
+
+  <!-- ======== CATÉGORIE ======== -->
   <Category>Tools:MediaServer:Video</Category>
-  <!-- -------- PARAMÈTRES DU DOCKER -------- -->
-  <Config Name="FFmpeg SSH" Target="22" Default="60022" Mode="tcp" Description="Port SSH/SFTP du conteneur" Type="Port" Display="always" Required="false" Mask="false">60022</Config>
-  <Config Name="TZ" Target="TZ" Default="Europe/Paris" Mode="" Description="Fuseau horaire" Type="Variable" Display="always" Required="false" Mask="false">Europe/Paris</Config>
-  <Config Name="Données et Configuration" Target="/data" Default="/mnt/user/appdata/ffmpeg/" Mode="rw" Description="Dossier de configuration et stockage FFmpeg_Malin" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ffmpeg/</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="ID utilisateur (Unraid : nobody=99)" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="ID groupe (Unraid : users=100)" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
-  <Config Name="Clé SSH" Target="KEY_VAR" Default="3072" Mode="" Description="Taille de la clé SSH générée automatiquement. Valeurs acceptées : 4096, 3072, 2048 ou Ed25519" Type="Variable" Display="always" Required="false" Mask="false">3072</Config>
+
+  <!-- ======== PARAMÈTRES DOCKER ======== -->
+
+  <!-- Port SSH -->
+  <Config Name="FFmpeg SSH" Target="22" Default="60022" Mode="tcp"
+          Description="Port SSH/SFTP du conteneur"
+          Type="Port" Display="always" Required="false" Mask="false">60022</Config>
+
+  <!-- Timezone -->
+  <Config Name="TZ" Target="TZ" Default="Europe/Paris" Mode=""
+          Description="Fuseau horaire"
+          Type="Variable" Display="always" Required="false" Mask="false">Europe/Paris</Config>
+
+  <!-- Dossier /data -->
+  <Config Name="Données et Configuration" Target="/data"
+          Default="/mnt/user/appdata/ffmpeg_malin/"
+          Mode="rw"
+          Description="Dossier de configuration, clés et home"
+          Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ffmpeg_malin/</Config>
+
+  <!-- PUID -->
+  <Config Name="PUID" Target="PUID" Default="99" Mode=""
+          Description="ID utilisateur (Unraid : nobody=99)"
+          Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+
+  <!-- PGID -->
+  <Config Name="PGID" Target="PGID" Default="100" Mode=""
+          Description="ID groupe (Unraid : users=100)"
+          Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+
+  <!-- Type de clé SSH -->
+  <Config Name="Clé SSH" Target="KEY_VAR" Default="3072" Mode=""
+          Description="Taille de la clé SSH générée automatiquement.
+Valeurs possibles :
+4096
+3072
+2048
+Ed25519"
+          Type="Variable" Display="always" Required="false" Mask="false">3072</Config>
 
 </Container>
