@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>SFTP_Home</Name>
+  <Repository>sftpmalin/sftphome:latest</Repository>
+  <Registry>https://hub.docker.com/r/sftpmalin/sftphome</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+
+  <!-- Liens utiles -->
+  <Support>https://github.com/sftpmalin/Media-Remote-Convert</Support>
+  <Project>https://github.com/sftpmalin/Media-Remote-Convert</Project>
+  <Overview>SFTP Home est un serveur SFTP simple et automatique. 
+Multi-utilisateur, gestion des clés SSH, génération automatique, configuration persistante dans /data. 
+Aucune dépendance, aucune configuration complexe : vous installez, et c'est prêt.</Overview>
+  <Icon>https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/SFTP.png</Icon>
+
+  <!-- Chemin vers ton XML brut GitHub -->
+  <TemplateURL>https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/templates-user/SFTP_Home.xml</TemplateURL>
+
+  <!-- Ports -->
+  <Config Name="SFTP / SSH" Target="22" Default="60022" Mode="tcp" Type="Port" Display="always">60022</Config>
+
+  <!-- Variables -->
+  <Config Name="TZ" Target="TZ" Default="Europe/Paris" Type="Variable" Display="always">Europe/Paris</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Type="Variable" Display="always">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Type="Variable" Display="always">100</Config>
+
+  <!-- Choix taille clé SSH -->
+  <Config Name="Clé SSH" Target="KEY_VAR" Default="3072" 
+          Description="Valeurs possibles : 4096 / 3072 / 2048 / ed25519"
+          Type="Variable" Display="always">3072</Config>
+
+  <!-- Montage /data (spécifique SFTP HOME) -->
+  <Config Name="Données & Configuration" Target="/data" Default="/mnt/user/appdata/sftphome/" 
+          Type="Path" Mode="rw" Display="always">/mnt/user/appdata/sftphome/</Config>
+
+  <TailscaleStateDir/>
+</Container>
