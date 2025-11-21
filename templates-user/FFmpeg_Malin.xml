@@ -75,4 +75,31 @@ Valeurs possibles :
 Ed25519"
           Type="Variable" Display="always" Required="false" Mask="false">3072</Config>
 
+
+  <!-- ======== UTILISATEURS (USERS_VAR) ======== -->
+
+  <Config Name="Utilisateur 1" Target="USERS_VAR1" Default="user1:0000:1000:100" Mode=""
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always" Required="false" Mask="false">user1:0000:1000:100</Config>
+
+  <Config Name="Utilisateur 2" Target="USERS_VAR2" Default="user2:0000:1001:100" Mode=""
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always" Required="false" Mask="false">user2:0000:1001:100</Config>
+
+  <Config Name="Utilisateur 3" Target="USERS_VAR3" Default="user3:0000:1002:100" Mode=""
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always" Required="false" Mask="false">user3:0000:1002:100</Config>
+
+  <Config Name="Utilisateur 4" Target="USERS_VAR4" Default="user4:0000:1003:100" Mode=""
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always" Required="false" Mask="false">user4:0000:1003:100</Config>
+
+  <Config Name="Utilisateur 5" Target="USERS_VAR5" Default="user5:0000:1004:100" Mode=""
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always" Required="false" Mask="false">user5:0000:1004:100</Config>
+
+  <Config Name="Utilisateur 6" Target="USERS_VAR6" Default="user6:0000:1005:100" Mode=""
+          Description="Format : username:password:UID:GID"
+          Type="Variable" Display="always" Required="false" Mask="false">user6:0000:1005:100</Config>
+
 </Container>
