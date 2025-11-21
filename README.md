@@ -2,6 +2,47 @@
   <img src="https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png" width="200">
 </p>
 
+# 📦 Notes de mise à jour – FFmpeg Malin
+
+donc j ai fait comme les 2 autre docker des metre les users 
+donc c est toujours la meme chose :
+
+-e USERS_VAR1="user1:pass:uid:gid" \
+
+voila un exemple de commande docker un :
+
+```bash
+docker run -d \
+  --name FFmpeg \
+  --hostname FFmpeg \
+  --restart=unless-stopped \
+  --net='br0' \
+  --ip='192.168.1.27' \
+  -p 2222:22 \
+  -v /mnt/user/appdata/ffmpeg:/data:rw \
+  -e SSH_PASS_AUTH="no" \
+  -e SSH_PERMIT_ROOT="no" \
+  -e SSH_CHALLENGE_AUTH="no" \
+  -e SSH_EMPTY_PASS="no" \
+  -e SSH_USE_PAM="yes" \
+  -e SSH_TCP_FORWARD="yes" \
+  -e SSH_X11_FORWARD="yes" \
+  -e SSH_PUBKEY_AUTH="yes" \
+  -e KEY_VAR="3072" \
+  -e USERS_VAR1="user1:0000:1000:100" \
+  -e USERS_VAR2="user2:0000:1001:100" \
+  -e USERS_VAR3="user3:0000:1002:100" \
+  -e USERS_VAR4="user4:0000:1003:100" \
+  -e USERS_VAR5="user5:0000:1004:100" \
+  -e USERS_VAR6="user6:0000:1005:100" \
+  --runtime=nvidia \
+  --gpus all \
+  -e NVIDIA_VISIBLE_DEVICES=all \
+  -e NVIDIA_DRIVER_CAPABILITIES=compute,video,utility \
+  --device /dev/dri:/dev/dri \
+sftpmalin/ffmpeg:latest
+```
+
 
 # 🚀 FFmpeg Malin – Édition Yoan
 Environnement FFmpeg complet + SSH/SFTP + gestion automatique des utilisateurs, compatible GPUs Intel & NVIDIA  
