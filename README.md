@@ -1,6 +1,6 @@
-<div class="center-img">
-    <img src="https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png" width="200" alt="Logo FFmpeg Malin">
-</div>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png" width="200" alt="Logo FFmpeg Malin">
+</p>
 
 <h1>🚀 FFmpeg Malin – Édition Yoan : Serveur de Transcodage Professionnel Sécurisé</h1>
 
