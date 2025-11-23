@@ -1,14 +1,3 @@
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 20px; color: #333; }
-        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 30px; }
-        .center-img { text-align: center; margin-bottom: 30px; }
-        .badges img { margin: 0 5px 10px 0; }
-        .code-block { background-color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #f4f4f4; color: #2c3e50; }
-    </style>
-</head>
 <body>
 
 <div class="center-img">
