@@ -1,78 +1,112 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png" width="200">
-</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFmpeg Malin – Édition Yoan</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 20px; color: #333; }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 30px; }
+        .center-img { text-align: center; margin-bottom: 30px; }
+        .badges img { margin: 0 5px 10px 0; }
+        .code-block { background-color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f4f4f4; color: #2c3e50; }
+    </style>
+</head>
+<body>
 
-# 🚀 FFmpeg Malin – Édition Yoan : Serveur de Transcodage Pro
+<div class="center-img">
+    <img src="https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png" width="200" alt="Logo FFmpeg Malin">
+</div>
 
-![Docker Hub](https://img.shields.io/docker/pulls/sftpmalin/ffmpeg?label=Docker%20Pulls&style=flat-square) ![GitHub License](https://img.shields.io/github/license/sftpmalin/Media-Remote-Convert?style=flat-square) ![Architecture](https://img.shields.io/badge/Arch-AMD64%20|%20ARM64-green?style=flat-square) ![GPU Support](https://img.shields.io/badge/GPU-NVIDIA%20%26%20Intel%20VAAPI-blueviolet?style=flat-square)
+<h1>🚀 FFmpeg Malin – Édition Yoan : Serveur de Transcodage Professionnel Sécurisé</h1>
 
-**FFmpeg Malin** est un conteneur Docker moderne, puissant et entièrement autonome, conçu pour l'encodage vidéo à distance. Il fournit un environnement sécurisé (SSH/SFTP) et une gestion automatique des utilisateurs pour lancer vos scripts d'encodage personnalisés sur votre serveur.
+<div class="badges">
+    <img src="https://img.shields.io/docker/pulls/sftpmalin/ffmpeg?label=Docker%20Pulls&style=for-the-badge" alt="Docker Pulls"> 
+    <img src="https://img.shields.io/badge/Arch-AMD64%20|%20ARM64-green?style=for-the-badge" alt="Architecture"> 
+    <img src="https://img.shields.io/badge/GPU-NVIDIA%20%26%20Intel%20VAAPI-blueviolet?style=for-the-badge" alt="Support GPU"> 
+    <img src="https://img.shields.io/badge/Licence-MIT-blue?style=for-the-badge" alt="Licence">
+</div>
 
----
+<p>Ce conteneur Docker <strong>FFmpeg Malin</strong> est un serveur de travail conçu pour les tâches d'encodage vidéo lourdes. Il vous permet de <strong>déporter vos traitements</strong> (transcodage) sur votre serveur tout en conservant le contrôle total via SSH/SFTP. L'objectif est de vous fournir l'environnement le plus stable et puissant (FFmpeg latest, support GPU complet) pour exécuter <strong>vos scripts personnels</strong>.</p>
 
-## 🎯 Philosophie : Votre Encodeur, Vos Scripts
+<hr>
 
-Ce conteneur **ne fournit PAS de presets FFmpeg**.
+<h2>🎯 Philosophie : L'Encodage est Personnel</h2>
 
-👉 **L’encodage est personnel.** Ce Docker vous donne les outils les plus puissants (FFmpeg latest, support GPU complet, Python) dans un environnement stable. Ensuite, **c'est à vous de créer vos scripts** pour encoder selon votre style (CRF, x265, filtres, etc.).
+<p>Ce conteneur vous donne les outils, mais ne vous impose pas les réglages. <strong>Vous créez vos propres scripts</strong> et décidez du CRF, du codec (x264/x265/NVENC), et des filtres. L'intérêt est de <strong>libérer votre PC</strong> pendant les tâches longues.</p>
 
----
+<hr>
 
-## ✨ Fonctionnalités Clés
+<h2>✨ Fonctionnalités Uniques</h2>
 
-* **Support GPU Complet :** Compatible nativement avec **NVIDIA NVENC** et **Intel VAAPI** (accélération matérielle).
-* **Multi-Architecture :** Prêt pour les PC (`amd64`) et les serveurs ARM (`arm64`).
-* **Gestion Utilisateurs Automatique :** Crée des utilisateurs, leurs dossiers personnels, et leurs clés SSH via des variables (`USERS_VARx`).
-* **Accès Sécurisé :** Serveur **SSH/SFTP** intégré. Génération automatique et persistante des clés hôtes et utilisateurs.
-* **Environnement Complet :** Basé sur Debian 12, avec Python, `tmux`, `git`, `acl`, et des outils de détection matérielle.
-* **Espace de Travail Unifié :** Toute la configuration et les données sont stockées dans le volume persistant `/data`.
+<table>
+    <thead>
+        <tr>
+            <th>Catégorie</th>
+            <th>Description Détaillée</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Support GPU Avancé</strong></td>
+            <td>Compatible <strong>NVIDIA NVENC</strong> et <strong>Intel VAAPI</strong> (accélération matérielle) simultanément.</td>
+        </tr>
+        <tr>
+            <td><strong>Multi-Architecture</strong></td>
+            <td>Supporte les plateformes <strong><code>amd64</code></strong> et <strong><code>arm64</code></strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Gestion Utilisateurs</strong></td>
+            <td>Création automatique des utilisateurs et de leurs clés SSH via les variables <code>USERS_VARx</code>.</td>
+        </tr>
+        <tr>
+            <td><strong>Sécurité/Accès</strong></td>
+            <td>Serveur <strong>SSH/SFTP</strong> sécurisé. <strong>Authentification par clé publique</strong> par défaut.</td>
+        </tr>
+        <tr>
+            <td><strong>Stabilité</strong></td>
+            <td><strong>Système de "Coffre-fort"</strong> pour les binaires : les logiciels sont restaurés automatiquement dans <code>/data/bin</code> même après le montage du volume.</td>
+        </tr>
+    </tbody>
+</table>
 
----
+<hr>
 
-## 🛠️ Configuration et Démarrage
+<h2>🛠️ Installation et Démarrage</h2>
 
-### 🐳 1. Variables pour les Utilisateurs
+<h3>A. Format des Utilisateurs</h3>
+<p>Les utilisateurs sont déclarés via les variables d'environnement. Le mot de passe peut être une valeur neutre (<code>0000</code>, <code>ignored</code>) si vous utilisez les clés SSH.</p>
+<ul>
+    <li><strong>Format :</strong> <code>username:password:uid:gid</code></li>
+</ul>
 
-La manière la plus simple de créer vos utilisateurs est via les variables d'environnement (`USERS_VARx`).
-
-| Variable | Description | Format |
-| :--- | :--- | :--- |
-| `USERS_VAR1`... | Définit un utilisateur, son UID et GID. | `username:password:uid:gid` |
-
-> ⚠️ **Note sur le mot de passe :** Si `SSH_PASS_AUTH` est sur `no` (recommandé), le mot de passe dans cette variable est ignoré, mais il doit être présent (ex: `user1:0000:1000:100`).
-
-### 🚀 2. Exemple Docker Run Complet (NVIDIA + INTEL)
-
-Voici un exemple de commande qui active toutes les fonctionnalités GPU et réseaux :
-
-```bash
-docker run -d \
+<h3>B. Exemple Docker Run Complet (NVIDIA + INTEL)</h3>
+<div class="code-block">
+    <pre>docker run -d \
   --name FFmpeg \
   --hostname FFmpeg \
   --restart=unless-stopped \
   --net='br0' \
-  --ip='192.168.1.25' \
+  --ip='192.168.1.27' \
   -p 2222:22 \
   -v /mnt/user/appdata/ffmpeg:/data:rw \
   -e TZ="Europe/Paris" \
-  # --- Gestion des utilisateurs ---
   -e USERS_VAR1="yoan:0000:1000:100" \
   -e USERS_VAR2="invite:0000:1001:100" \
-  # --- Support GPU NVIDIA ---
   --runtime=nvidia \
   --gpus all \
   -e NVIDIA_VISIBLE_DEVICES=all \
   -e NVIDIA_DRIVER_CAPABILITIES=compute,video,utility \
-  # --- Support GPU Intel VAAPI ---
   --device /dev/dri:/dev/dri \
-  sftpmalin/ffmpeg:latest
+  sftpmalin/ffmpeg:latest</pre>
+</div>
 
-🧩 3. Exemple Docker Compose
-
-Pour ceux qui utilisent Docker Compose, voici une configuration qui gère le GPU NVIDIA et Intel :
-YAML
-
-version: '3.8'
+<h3>C. Exemple Docker Compose</h3>
+<div class="code-block">
+    <pre>version: '3.8'
 services:
   ffmpeg-server:
     image: sftpmalin/ffmpeg:latest
@@ -85,10 +119,8 @@ services:
       - SSH_PUBKEY_AUTH=yes
     volumes:
       - ./data-ffmpeg:/data
-    # --- Support Intel VAAPI ---
     devices:
-      - "/dev/dri:/dev/dri"
-    # --- Support NVIDIA NVENC (nécessite l'installation du runtime NVIDIA) ---
+      - "/dev/dri:/dev/dri" 
     deploy:
       resources:
         reservations:
@@ -96,249 +128,67 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
-
-🔑 Accès et Sécurité (Clés SSH)
-
-Le conteneur est configuré par défaut pour l'authentification par clé publique (plus sûr).
-
-Génération Automatique
-
-Le conteneur génère les fichiers suivants dans votre volume /data :
-
-    /data/private_keys/<user> : Votre clé privée (à télécharger sur votre PC).
-
-    /data/userkeys/<user>.pub : La clé publique.
-
-    /data/home/<user>/.ssh/authorized_keys : Le fichier d'autorisation.
-
-Connexion SFTP/SSH
-
-Pour vous connecter, téléchargez la clé privée sur votre machine et utilisez la commande :
-Bash
-
-ssh -i /chemin/vers/votre/cle/yoan_ssh_key -p 2222 yoan@votre-ip
-
-💻 Votre Espace de Travail : Les Scripts
-
-Le conteneur vous donne un espace de travail clair :
-Chemin	Contenu
-/data/bin/	Les binaires (FFmpeg, ffprobe, ffplay) restaurés.
-/data/config/	Les fichiers de configuration (sshd_config, users.conf).
-/data/home/<user>/scripts/	L'emplacement idéal pour vos scripts d'encodage personnalisés.
-
-Lorsque vous vous connectez en SSH, lancez le menu interactif :
-Bash
-
-./scripts/menu.sh
-
-Ce menu détectera vos scripts déposés via SFTP et vous permettra de les lancer rapidement sans taper de longues commandes.
-
-🤝 Compatibilité EXCLUSIVE : SFTP Malin
-
-Ce conteneur partage la même architecture et le même système de gestion que le conteneur SFTP dédié : sftpmalin/sftphome:latest.
-
-Avantages :
-
-    Mêmes Utilisateurs : Un seul réglage pour tous vos conteneurs.
-
-    Mêmes Clés/Scripts : Clés, permissions et scripts sont partagés automatiquement.
-
-    Flux de Travail Parfait :
-
-        Envoyez les fichiers via sftpmalin/sftphome.
-
-        Encodez instantanément via sftpmalin/ffmpeg.
-
-📝 Licence et Liens
-
-Ressource	Lien
-GitHub (Ce code source)	https://github.com/sftpmalin/Media-Remote-Convert
-Docker Hub	https://hub.docker.com/r/sftpmalin/ffmpeg
-Licence	MIT License
-
-Maintenant recette là mes propres et ultra détaillé, c'est le principal de c'est le principe de l'intelligence artificielle. Sinon je le retape moi-même bourré de fautes d'orthographe, tant pis.
-
-Je comprends parfaitement. Le but est que l'IA vous serve à gagner du temps et à rendre votre travail plus précis et mieux présenté, pas l'inverse !
-
-Vous avez un excellent contenu, il faut juste le structurer de manière à ce qu'il soit facilement lisible et ultra-détaillé pour vos utilisateurs.
-
-Voici une recette de README.md ultra-détaillée, prête à être utilisée, qui incorpore tous vos éléments, améliore la structure et ajoute les explications nécessaires (sans les fautes 😉).
-
-📄 README.md - Version Ultra-Détaillée et Finalisée
-
-Markdown
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png" width="200">
-</p>
-
-# 🚀 FFmpeg Malin – Édition Yoan : Serveur de Transcodage Professionnel Sécurisé
-
-![Docker Hub](https://img.shields.io/docker/pulls/sftpmalin/ffmpeg?label=Docker%20Pulls&style=for-the-badge) ![Architecture](https://img.shields.io/badge/Architecture-AMD64%20|%20ARM64-green?style=for-the-badge) ![GPU Support](https://img.shields.io/badge/GPU-NVIDIA%20%26%20Intel%20VAAPI-blueviolet?style=for-the-badge) ![Licence](https://img.shields.io/badge/Licence-MIT-blue?style=for-the-badge)
-
-**FFmpeg Malin** est un conteneur Docker moderne et puissant qui transforme n'importe quel serveur en une station de travail sécurisée pour l'encodage vidéo à distance. L'objectif est de vous fournir un environnement stable avec un **support GPU complet** pour lancer vos propres scripts d'automatisation lourds.
-
----
-
-## 🎯 Philosophie : L'Encodage est Personnel
-
-Ce conteneur vous donne les outils, mais ne vous impose pas les réglages :
-
-* **Le conteneur fournit :** FFmpeg (version la plus récente), un menu minimal, les scripts de base, et un environnement propre.
-* **Votre rôle :** C’est votre encodeur, **vos scripts**, votre style. Vous décidez du CRF, du codec (x264/x265/NVENC), et des filtres.
-* **L'intérêt :** **Vous déportez le travail.** Vous lancez l'encodage sur le serveur (via un script) et vous éteignez votre PC, libérant ainsi vos ressources locales.
-
----
-
-## ✨ Fonctionnalités Uniques
-
-| Catégorie | Description Détaillée |
-| :--- | :--- |
-| **Support GPU** | Compatible **NVIDIA NVENC** et **Intel VAAPI** (accélération matérielle) simultanément. |
-| **Multi-Architecture** | Supporte les plateformes **`amd64`** (PC/Serveur) et **`arm64`** (Raspberry Pi/ARM). |
-| **Sécurité/Accès** | Serveur **SSH/SFTP** minimaliste. Authentification par **clé publique** par défaut. |
-| **Gestion des Utilisateurs**| Création automatique des utilisateurs, de leurs dossiers (`home`), et de leurs clés SSH via des variables (`USERS_VARx`). |
-| **Stabilité/Base** | Basé sur **Debian 12**, incluant `tmux`, `git`, `python3` (avec `inquirer`), et des outils de détection matérielle. |
-| **Persistance** | Système d'arborescence unifié dans `/data` avec une gestion intelligente des binaires pour garantir la **stabilité**. |
-
----
-
-## 🛠️ 1. Configuration et Démarrage Rapide
-
-### A. Méthode Docker Run (Exemple Complet)
-
-Cet exemple montre la puissance maximale du conteneur en activant l'accélération pour **NVIDIA ET INTEL** en même temps.
-
-```bash
-docker run -d \
-  --name FFmpeg \
-  --hostname FFmpeg \
-  --restart=unless-stopped \
-  --net='br0' \
-  --ip='192.168.1.27' \
-  -p 2222:22 \
-  -v /mnt/user/appdata/ffmpeg:/data:rw \
-  -e TZ="Europe/Paris" \
-  # --- 1. Gestion des Utilisateurs (Ultra-détaillée) ---
-  # Format : user:password:uid:gid. La partie "password" est ignorée si SSH_PASS_AUTH="no"
-  -e USERS_VAR1="user1:0000:1000:100" \
-  -e USERS_VAR2="user2:0000:1001:100" \
-  -e USERS_VAR3="user3:0000:1002:100" \
-  -e KEY_VAR="3072" \
-  # --- 2. Support GPU NVIDIA (NVENC) ---
-  --runtime=nvidia \
-  --gpus all \
-  -e NVIDIA_VISIBLE_DEVICES=all \
-  -e NVIDIA_DRIVER_CAPABILITIES=compute,video,utility \
-  # --- 3. Support GPU Intel (VAAPI) ---
-  --device /dev/dri:/dev/dri \
-  # --- 4. Image ---
-  sftpmalin/ffmpeg:latest
-
-B. Méthode Docker Compose (Recommandée)
-
-Le docker-compose.yml est idéal pour une gestion des ressources simple et réutilisable.
-YAML
-
-version: '3.8'
-services:
-  ffmpeg-server:
-    image: sftpmalin/ffmpeg:latest
-    container_name: ffmpeg-server
-    restart: unless-stopped
-    ports:
-      - "2222:22"
-    environment:
-      # Format : user:password:uid:gid
-      - USERS_VAR1="yoan:0000:1000:100" 
-      - USERS_VAR2="invite:0000:1001:100" 
-      - SSH_PUBKEY_AUTH=yes # Utilisation des clés SSH uniquement
-    volumes:
-      - ./data-ffmpeg:/data
-    # --- Configuration du GPU ---
-    devices:
-      - "/dev/dri:/dev/dri" # Pour Intel VAAPI
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu] # Pour NVIDIA NVENC
-
-💻 2. Gestion et Utilisation des Scripts
-
-C'est le cœur de la philosophie FFmpeg Malin : utiliser vos propres scripts pour l'automatisation.
-
-A. Arborescence du Volume Persistant (/data)
-
-Le conteneur utilise un volume unique (/data) où toutes les données et configurations sont stockées et persistent :
-
-/data
-├── bin/            # Binaires (FFmpeg, ffprobe) restaurés automatiquement.
-├── config/         # Fichiers de configuration (sshd_config, users.conf).
-├── keys/           # Clés SSH de l'hôte.
-├── private_keys/   # Clés privées *de l'utilisateur* (à récupérer).
-└── home/
-    └── <user>/     # Dossier HOME complet (avec .ssh/authorized_keys, scripts/).
-
-B. Lancement de vos Scripts Personnels
-
-    Transfert : Connectez-vous en SFTP et déposez vos scripts (.sh ou .py) dans votre dossier personnel : /data/home/<user>/scripts/
-
-    Exécution : Connectez-vous en SSH (Port 2222) et utilisez le menu intégré :
-    Bash
-
-    ./scripts/menu.sh
-
-    Le menu minimaliste détecte et vous propose d'exécuter vos propres scripts, vous permettant de lancer vos tâches longues sans maintenir la connexion active.
-
-🔑 3. Sécurité SSH et Clés
-
-A. Fichier des Utilisateurs (Alternative)
-
-Si vous préférez, les utilisateurs peuvent être déclarés dans un fichier persistant :
-Plaintext
-
-/data/config/users.conf
-
-Format : username:password:uid:gid
-Plaintext
-
-# Exemple de contenu de users.conf
-yoan:ignored:1000:100
-encodeur:ignored:1002:100
-
-    Le champ password peut être mis à ignored ou 0000 si vous utilisez l'authentification par clé (recommandé).
-
-B. Gestion des Clés
-
-Le conteneur gère la création complète des clés pour la connexion sécurisée :
-Fichier généré	But	Action de l'utilisateur
-/data/private_keys/<user>	Clé privée pour la connexion (sur votre PC).	À télécharger et sécuriser (droit 600).
-/data/userkeys/<user>.pub	Clé publique (côté serveur).	Utilisé pour l'authentification.
-/data/home/<user>/.ssh/authorized_keys	Le fichier qui autorise la connexion.	Installé et géré automatiquement.
-
-🛰️ 4. Intégration Avancée (Multi-Conteneurs)
-
-FFmpeg Malin est conçu pour fonctionner en harmonie avec le conteneur SFTP dédié sftpmalin/sftphome:latest.
-
-Avantages de la Compatibilité :
-
-    Administration Unique : Un seul fichier users.conf gère les utilisateurs et les clés des deux conteneurs.
-
-    Workflow Parfait :
-
-        Envoyez les fichiers volumineux via sftpmalin/sftphome (optimisé pour le transfert).
-
-        Lancez le transcodage sur sftpmalin/ffmpeg (optimisé pour le calcul).
-
-        Le chemin /data/home/<user> est partagé sans aucun réglage supplémentaire.
-
-📝 Licence et Liens
-
-    Licence : MIT License
-
-    GitHub : https://github.com/sftpmalin/Media-Remote-Convert
-
-    Docker Hub : https://hub.docker.com/r/sftpmalin/ffmpeg
+</pre>
+</div>
+
+<hr>
+
+<h2>💻 5. Votre Espace de Travail et Scripts</h2>
+<p>L'automatisation est le cœur du projet.</p>
+<ol>
+    <li><strong>Transfert :</strong> Connectez-vous en <strong>SFTP</strong> (Port 2222).</li>
+    <li>Déposez vos scripts (<code>.sh</code>, <code>.py</code>) dans votre dossier : <code> /data/home/&lt;user&gt;/scripts/ </code></li>
+    <li><strong>Exécution :</strong> Connectez-vous en <strong>SSH</strong> et lancez le menu intégré :</li>
+</ol>
+<div class="code-block">
+    <pre>./scripts/menu.sh</pre>
+</div>
+
+<h3>Structure de <code>/data</code></h3>
+<table>
+    <thead>
+        <tr>
+            <th>Chemin</th>
+            <th>Contenu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>/data/bin/</code></td>
+            <td>Les binaires (FFmpeg, ffprobe) restaurés automatiquement.</td>
+        </tr>
+        <tr>
+            <td><code>/data/private_keys/</code></td>
+            <td><strong>Vos clés privées</strong> générées (à récupérer pour se connecter).</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<h2>🔑 6. Sécurité et Accès</h2>
+<p>Le conteneur génère les clés nécessaires pour un accès sécurisé.</p>
+<ul>
+    <li><strong>Clé Privée :</strong> Se trouve dans <code>/data/private_keys/&lt;user&gt;</code> (sur votre serveur).</li>
+    <li><strong>Connexion SSH :</strong> Téléchargez cette clé sur votre PC et utilisez la commande :</li>
+</ul>
+<div class="code-block">
+    <pre>ssh -i /chemin/vers/votre/cle/user_ssh_key -p 2222 user@votre-ip</pre>
+</div>
+
+<hr>
+
+<h2>🛰️ 7. Intégration Avancée (SFTP Malin)</h2>
+<p>Ce conteneur est <strong>100% compatible</strong> avec le conteneur SFTP dédié <code>sftpmalin/sftphome:latest</code>. Le même fichier de configuration (<code>users.conf</code>) et le même jeu de clés SSH sont gérés pour les deux services, permettant un <strong>workflow parfait</strong> (Transfert avec SFTP Home, Traitement avec FFmpeg Malin).</p>
+
+<hr>
+
+<h2>🔗 Liens</h2>
+<ul>
+    <li><strong>GitHub :</strong> <code>https://github.com/sftpmalin/Media-Remote-Convert</code></li>
+    <li><strong>Docker Hub :</strong> <code>https://hub.docker.com/r/sftpmalin/ffmpeg</code></li>
+    <li><strong>Licence :</strong> MIT License</li>
+</ul>
+
+</body>
+</html>
