@@ -1,5 +1,3 @@
-<body>
-
 <div class="center-img">
     <img src="https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png" width="200" alt="Logo FFmpeg Malin">
 </div>
